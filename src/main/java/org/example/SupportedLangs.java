@@ -8,6 +8,7 @@ public class SupportedLangs {
         return lang != null && switch (lang.toLowerCase()) {
             case "python" -> true;
             case "scala" -> true;
+            case "java" -> true;
             default -> false;
         };
     }

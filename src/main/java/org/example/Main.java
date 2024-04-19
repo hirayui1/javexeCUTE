@@ -15,7 +15,7 @@ public class Main {
          * - we gonna run it on the machine
          */
 
-        var cmdArray = new String[] {"python3", "program.py"};
+        var cmdArray = new String[] {"java", "Main.java"};
 
         // Execute the command - creates a running problam
         Process process = Runtime.getRuntime().exec(cmdArray);

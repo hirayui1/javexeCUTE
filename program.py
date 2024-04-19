@@ -1,1 +1,3 @@
-print('hello world') _
+object Main extends App {
+    println("hello")
+}

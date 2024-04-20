@@ -2,14 +2,12 @@ package org.example;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
+
+        // docker run --rm -v /Users/aghurtchumelia/Personal/exeCUTE:/app -w /app node:alpine node Javascript.js
+
         for (String arg : args) {
             System.out.println(arg);
         }
@@ -40,7 +38,7 @@ public class Main {
                 .exec(args);
 
         // Read the output of the process
-        BufferedReader success  = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        BufferedReader success  = process.inputReader();
         BufferedReader error  = process.errorReader();
 
         String line;
@@ -59,6 +57,8 @@ public class Main {
         int exitCode = process.waitFor();
 
         success.close();
+
+        System.out.println(exitCode);
 
         if (successStr.isEmpty()) {
             System.out.println(errorStr);

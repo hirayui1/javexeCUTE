@@ -38,8 +38,6 @@ public class Launch {
 
             IOUtil.write(fileName, req);
 
-
-            // Change to sout("unsupported language") if !supports(lang, req); later
             StringBuilder finalOutput = TerminalUtil.readTerminal(TerminalUtil.runTerminalCommand(imageName, lang, fileName));
             IOUtil.delete(fileName);
             return finalOutput;

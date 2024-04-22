@@ -7,13 +7,18 @@ public class ClassNameFinder {
         String[] split = req.body().split("\n");
 
         for (String line : split) {
+            String[] words = line.trim().split("\\s+");
+            boolean isClassName = false;
+            for (String word : words) {
+                if (isClassName) {
+                    return word + ".java";
+                }
+                if (word.equalsIgnoreCase("class")) {
+                    isClassName = true;
 
-            if (line.contains("public class")){
-                String[] words = line.trim().split("\\s+");
-                return words[2] + ".java";
+                }
             }
         }
         return null;
     }
-
 }

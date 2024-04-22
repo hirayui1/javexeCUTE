@@ -30,7 +30,8 @@ public class Launch {
             // try to add timeout - 5 seconds
 
             String lang = req.params(":lang");
-            SupportedLangs.supports(lang, req);
+            if(
+            SupportedLangs.supports(lang, req)){
 
             String fileName = SupportedLangs.getFileName();
             String imageName = SupportedLangs.getImageName();
@@ -42,10 +43,10 @@ public class Launch {
             StringBuilder finalOutput = TerminalUtil.readTerminal(TerminalUtil.runTerminalCommand(imageName, lang, fileName));
             IOUtil.delete(fileName);
             return finalOutput;
-//            } else {
-//                System.out.println("Your language is not supported");
-//                return null;
-//            }
+            } else {
+                res.type("text/plain");
+                return "Your lang/parameter is not supported or incorrectly entered";
+            }
         });
     }
 }

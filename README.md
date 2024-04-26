@@ -1,4 +1,4 @@
-Runs your code provided by an http request, creates a file out of your code, runs it on a docker container and responses with the output.
+Executes your code provided by an http request; creates a file out of your code, runs it on a docker container and responds with the output.
 
 available commands:
 - /java
